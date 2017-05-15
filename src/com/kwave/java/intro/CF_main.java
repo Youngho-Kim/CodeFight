@@ -17,7 +17,8 @@ public class CF_main {
 //			ig.maxMultiple(3,50);
 //			ig.circleOfNumbers(10,2);
 //			ig.lateRide(808);
-			ig.phoneCall(0, 0, 1, 2350);
+//			ig.phoneCall(10,10,10,8);
+			ig.knapsackLight(15,2,20,3,2);
 	}
 
 }

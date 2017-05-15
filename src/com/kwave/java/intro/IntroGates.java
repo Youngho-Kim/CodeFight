@@ -103,23 +103,98 @@ public class IntroGates {
 	
 	
 	int phoneCall(int min1, int min2_10, int min11, int s) {
-
+// 히든 문제는 min1, min2_10, min11 모두 10이고 s는 8일때 이며 
+// 기대 값은 0이다.
 	    
 	    int temp = min1+(min2_10*9);
 	    int one = 0;
 	    int ten = 0;
-	    if(s<temp)
+	    int sum = 0;
+	    if(s<min1)
 	    {
-	        one = (s-min1)/min2_10;
-	        System.out.println(one+1);
-	        return 1+one;
-	    
+	    	sum = 0;
+	    	System.out.println(sum);
 	    }
 	    else{
-	        ten = (s-min1-(min2_10*9))/min11;
-	        System.out.println(10+ten);
-	        return 10+ten;
+		    if(s<temp)
+		    {
+		        one = (s-min1)/min2_10;
+		        System.out.println(one+1);
+		        sum =  1+one;
+		    
+		    }
+		    else{
+		        ten = (s-min1-(min2_10*9))/min11;
+		        System.out.println(10+ten);
+		        sum =  10+ten;
+		    }
 	    }
+	    return sum;
 	    
+	}
+	
+	
+	boolean reachNextLevel(int experience, int threshold, int reward) {
+
+	    if(experience+reward >=threshold)
+	    {
+	        return true;
+	    }
+	    else
+	    {
+	        return false;
+	    }
+	}
+	
+	int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW) {
+
+	    int cal = 0;
+	    int sum = 0;
+
+	    cal = weight1+weight2;
+	    if(maxW<cal)
+	    {
+	    	if(maxW<weight1 || maxW<weight2)
+	    	{
+	    		if(maxW<weight1 && maxW>=weight2)
+	    		{
+	    			sum = value2;
+	    		}
+	    		else if(maxW>=weight1 && maxW<weight2)
+	    		{
+	    			sum = value1;
+	    		}
+	    		else if(maxW<weight1 && maxW<weight2)
+	    		{	    			
+	    			sum = 0;
+	    		}
+	    	}
+	    	else{
+		    	if(weight1>weight2)
+		    	{
+		    		sum = value1;
+		    	}
+		    	else if(weight1<weight2)
+		    	{
+		    		sum = value2;
+		    	}
+		    	else if(weight1==weight2)
+		    	{
+		    		if(value1>value2)
+		    		{
+		    			sum = value1;
+		    		}
+		    		else
+		    		{
+		    			sum = value2;
+		    		}
+		    	}
+	    	}
+	    }
+	    else{
+	    	sum = value1+value2;
+	    }
+	    System.out.println(sum);
+	    return sum;
 	}
 }
