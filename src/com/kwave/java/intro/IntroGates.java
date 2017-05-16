@@ -197,4 +197,30 @@ public class IntroGates {
 	    System.out.println(sum);
 	    return sum;
 	}
+	
+	
+	int countSumOfTwoRepresentations2(int n, int l, int r) {
+	    int count=0;
+	     int sum = n-r-l;
+	     if(n>=l+l)
+	     {
+	             for(int i=l+sum; i<=n/2;i++)
+	             {
+	                     for(int j=n/2;j<=r;j++)
+	                     {
+	                             if(i+j == n)
+	                             {
+	                                     count++;
+	                             }
+	                     }
+	             }
+	             
+	     }
+	     else
+	     {
+	             count = 0;
+	     }
+
+	     return count;
+	}
 }
