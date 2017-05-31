@@ -18,7 +18,10 @@ public class CF_main {
 //			ig.circleOfNumbers(10,2);
 //			ig.lateRide(808);
 //			ig.phoneCall(10,10,10,8);
-			ig.knapsackLight(15,2,20,3,2);
+//			ig.knapsackLight(15,2,20,3,2);
+//			ig.knapsackLight(2, 5, 3, 4, 5);
+//			ig.specialPolynomial(10, 1111111110);
+			ig.divideAsLongAsPossible(64, 4);
 	}
 
 }

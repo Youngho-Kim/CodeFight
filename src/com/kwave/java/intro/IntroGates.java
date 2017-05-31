@@ -146,6 +146,34 @@ public class IntroGates {
 	    }
 	}
 	
+	
+	
+	int countSumOfTwoRepresentations2(int n, int l, int r) {
+	    int count=0;
+	     int sum = n-r-l;
+	     if(n>=l+l)
+	     {
+	             for(int i=l+sum; i<=n/2;i++)
+	             {
+	                     for(int j=n/2;j<=r;j++)
+	                     {
+	                             if(i+j == n)
+	                             {
+	                                     count++;
+	                             }
+	                     }
+	             }
+	             
+	     }
+	     else
+	     {
+	             count = 0;
+	     }
+
+	     return count;
+	}
+	
+	
 	int knapsackLight(int value1, int weight1, int value2, int weight2, int maxW) {
 
 	    int cal = 0;
@@ -154,15 +182,39 @@ public class IntroGates {
 	    cal = weight1+weight2;
 	    if(maxW<cal)
 	    {
-	    	if(maxW<weight1 || maxW<weight2)
+            if(maxW <weight1 && maxW>=weight2)
+            {
+                sum = value2;
+            }
+            else if(maxW >= weight1 && maxW<weight2)
+            {
+                sum = value1;
+            }
+	    	else if(maxW<=weight1 || maxW<=weight2)
 	    	{
-	    		if(maxW<weight1 && maxW>=weight2)
+	    		if(maxW<=weight1 && maxW>=weight2)
 	    		{
-	    			sum = value2;
+                    
+	    			 if(value1>value2)
+                    {
+                        sum = value1;
+                    }
+                    else
+                    {
+                        sum = value2;
+                    }
 	    		}
-	    		else if(maxW>=weight1 && maxW<weight2)
+	    		else if(maxW>=weight1 && maxW<=weight2)
 	    		{
-	    			sum = value1;
+                    if(value1<value2)
+                    {
+                        sum = value2;
+                    }
+                    else
+                    {
+                        sum = value1;
+                    }
+	    			
 	    		}
 	    		else if(maxW<weight1 && maxW<weight2)
 	    		{	    			
@@ -199,28 +251,47 @@ public class IntroGates {
 	}
 	
 	
-	int countSumOfTwoRepresentations2(int n, int l, int r) {
-	    int count=0;
-	     int sum = n-r-l;
-	     if(n>=l+l)
-	     {
-	             for(int i=l+sum; i<=n/2;i++)
-	             {
-	                     for(int j=n/2;j<=r;j++)
-	                     {
-	                             if(i+j == n)
-	                             {
-	                                     count++;
-	                             }
-	                     }
-	             }
-	             
-	     }
-	     else
-	     {
-	             count = 0;
-	     }
+	
+	int specialPolynomial(int x, int n) {
+		   int temp = 0;
+		      int count = 0;
+		      
+		      
+	      if(temp<=n){
+		    for(int i=0;i<n;i++)
+		    {
+		          temp =  temp+(int)Math.pow(x,i);
+		               count = i;
+		          
+		          System.out.println(count);
+		    }
+	      }
+	      return count;
+		}
 
-	     return count;
-	}
+
+	int divideAsLongAsPossible(int n, int d) {
+		int first = n;
+		int result = 0;
+		    int temp = 0;
+		    for(int i=0;i<=(first/d);i++){
+		        if((n/d)>=1)
+		        {
+		            temp = n/d;
+		            System.out.printf("%d : %d/%d\r\n",i, n,d);
+		            n=temp;
+		            System.out.printf("%d : n = %d\r\n",i, n);
+		        }
+		        else if((n/d)<1){
+		            temp = n;
+		            System.out.printf("%d : %d/%d\r\n",i, n,d);
+		        }
+		        
+		    }
+		    System.out.printf("temp = %d\r\n", n);
+		    
+		    return result = temp;
+		}
 }
+
+
